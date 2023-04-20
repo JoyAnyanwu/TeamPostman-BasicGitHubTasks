@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "66886c02-f2fd-490e-9240-d083289cc786",
+		"name": "API File",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26152173",
+		"_collection_link": "https://bold-flare-502356.postman.co/workspace/My-Workspace~857083f0-91a2-44b1-8c9d-b1faae06b891/collection/26152173-66886c02-f2fd-490e-9240-d083289cc786?action=share&creator=26152173&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "All TodoEntries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Status code name should have an OK string\", function () {\r",
+							"        pm.response.to.have.status(\"OK\");\r",
+							"    });\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"console.log(jsonData)\r",
+							"console.log(jsonData.totalResults)\r",
+							"console.log(jsonData.collection[7])\r",
+							"console.log(jsonData.undefined)\r",
+							"console.log(jsonData.Item) \r",
+							"\r",
+							"pm.test(\"Confirm that the total results is collection\", function () {\r",
+							"    pm.expect(jsonData.totalResults).to.eql(undefined);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches undefined\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"collection\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches collection\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Collection\");\r",
+							"\r",
+							"});\r",
+							"pm.test(\"Body matches Item\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Collection\");\r",
+							"\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"0\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
