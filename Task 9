@@ -1,0 +1,139 @@
+{
+	"id": "ecb6aa27-af86-48fb-8df1-5cd1b75da42d",
+	"name": "Get Books",
+	"timestamp": "2023-04-21T03:49:25.348Z",
+	"collection_id": "26152173-e9ac33f7-8ec6-4aac-bcc8-da0bfe69b59b",
+	"folder_id": 0,
+	"environment_id": "26152173-a03ba068-f89e-4690-88db-cfe53185f8d0",
+	"totalPass": 19,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-04-21T03:49:21.520Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "ed324f88-0a30-48fb-9ca4-43ae7e98e241",
+			"name": "Get All Books",
+			"url": "https://simple-books-api.glitch.me/orders/books",
+			"time": 1426,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches type": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches type": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1426
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches type": true
+				}
+			]
+		},
+		{
+			"id": "1816e6f5-2af3-4984-a97a-485f91f07fe1",
+			"name": "Get - valid Book Types",
+			"url": "https://simple-books-api.glitch.me/book?type=fiction",
+			"time": 305,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is not 200": true,
+				"Body matches type": true
+			},
+			"testPassFailCounts": {
+				"Status code is not 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches type": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				305
+			],
+			"allTests": [
+				{
+					"Status code is not 200": true,
+					"Body matches type": true
+				}
+			]
+		},
+		{
+			"id": "14306cf9-a569-4659-bfd9-20e2fd73abec",
+			"name": "Get - Invalid Book Types",
+			"url": "https://simple-books-api.glitch.me/books?type=non-fiction",
+			"time": 364,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body does not match type": true,
+				"Body matches type": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body does not match type": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches type": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				364
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body does not match type": true,
+					"Body matches type": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2095,
+	"collection": {
+		"requests": [
+			{
+				"id": "ed324f88-0a30-48fb-9ca4-43ae7e98e241",
+				"method": "GET"
+			},
+			{
+				"id": "1816e6f5-2af3-4984-a97a-485f91f07fe1",
+				"method": "GET"
+			},
+			{
+				"id": "14306cf9-a569-4659-bfd9-20e2fd73abec",
+				"method": "GET"
+			}
+		]
+	}
+}
